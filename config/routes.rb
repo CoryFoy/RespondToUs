@@ -1,5 +1,13 @@
 Respondtous::Application.routes.draw do
 
+  get "event/new"
+
+  post "event/create"
+
+  get "event/show"
+
+  post "event/delete"
+
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -7,6 +15,7 @@ Respondtous::Application.routes.draw do
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
+  match 'event/:token' => 'event#show'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
