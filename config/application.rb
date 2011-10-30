@@ -6,7 +6,6 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
-require "rails/test_unit/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -17,6 +16,13 @@ end
 
 module Respondtous
   class Application < Rails::Application
+
+    #Suppress auto spec generation
+    config.generators do |g|
+      g.view_specs false
+      g.helper_specs false
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
