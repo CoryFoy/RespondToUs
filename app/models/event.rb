@@ -1,6 +1,7 @@
 class Event
   include UniquifyMongo::Uniquify
   include Mongoid::Document
+  embeds_many :responses
 
   unique_field :token
   field :name

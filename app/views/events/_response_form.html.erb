@@ -1,0 +1,12 @@
+<div id="response_form">
+  <h2>Are you coming?</h2>
+  <%= parent_form.fields_for :response do |builder| %>
+    <%= builder.radio_button :is_coming, "Yes" %><%= builder.label :is_coming, "Yes" %>
+    <%= builder.radio_button :is_coming, "No" %><%= builder.label :is_coming, "No" %>
+    <%= builder.radio_button :is_coming, "Maybe", :checked => true %><%= builder.label :is_coming, "Maybe" %><br />
+    <%= builder.label :name, "Your Name:" %><%= builder.text_field :name %><br />
+    <%= builder.label :email, "Your Email Address:" %><%= builder.text_field :email %><br />
+    <%= builder.label :comments, "Comments:" %><br /><%= builder.text_area :comments %><br />
+    <%= builder.submit %>
+  <% end %>
+</div>

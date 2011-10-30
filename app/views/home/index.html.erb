@@ -1,5 +1,5 @@
 <h1>Respond to Us!</h1>
-<%= form_for @event, :url => event_create_path do |f| %>
+<%= form_for @event do |f| %>
 
   <%= f.label :name, "Event Name:" %><%= f.text_field :name %> <br />
   <%= f.label :date, "Event Date:" %><%= f.text_field :date %> <br />
