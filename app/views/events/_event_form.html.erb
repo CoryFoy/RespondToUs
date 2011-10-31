@@ -1,0 +1,13 @@
+<div class="span-12">
+<fieldset><legend>Create an event</legend>
+<%= form_for @event do |f| %>
+  <%= f.label :name, "Event Name: (Required)", :class => "required" %><br /><%= f.text_field :name, :class => "text", :required => true %> <br />
+  <%= f.label :date, "Event Date:" %><br /><%= f.text_field :date, :class => "text" %> <br />
+  <%= f.label :location, "Location:" %><br /><%= f.text_field :location, :class => "text" %> <br />
+  <%= f.label :host_email, "Your Email Address: (Required)", :class => "required" %><br /><%= f.text_field :host_email, :class => "text", :required => true %> <br />
+  <%= f.label :description, "Description:" %> <br />
+  <%= f.text_area :description, :class => "text" %><br />
+  <%= f.submit %>
+<% end %>
+</fieldset>
+</div>

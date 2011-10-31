@@ -1,5 +1,5 @@
 <%- flash.each do |key, msg| -%>
-  <div id="<%= key %>">
+  <div class="notice" id="<%= key %>">
     <p style="float:right;"><%= link_to_function 'X', "$('##{key}').fadeOut('slow', function(){})" %></p>
     <p><%= msg %></p>
     <div class="clear"></div>
@@ -9,7 +9,12 @@
 <%= form_for @event do |f| %>
   <%= f.hidden_field :token, :value => @event.token %>
   <h1>Welcome to "<%=@event.name %>"!</h1> 
-  Responses: <%=@counts[:yes] %> Yes, <%=@counts[:no] %> No, <%=@counts[:maybe] %> Maybe<br />
+  Responses: 
+  <ul>
+    <li><%=@counts[:yes] %> Yes</li> 
+    <li><%=@counts[:no] %> No</li> 
+    <li><%=@counts[:maybe] %> Maybe</li>
+  </ul>
 To be held on <b><%=@event.date %></b> at <em><%=@event.location %></em><br />
 Description: <br />
 <%=@event.description %>

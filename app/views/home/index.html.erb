@@ -1,11 +1,5 @@
 <h1>Respond to Us!</h1>
-<%= form_for @event do |f| %>
-
-  <%= f.label :name, "Event Name:" %><%= f.text_field :name %> <br />
-  <%= f.label :date, "Event Date:" %><%= f.text_field :date %> <br />
-  <%= f.label :location, "Location:" %><%= f.text_field :location %> <br />
-  <%= f.label :host_email, "Your Email Address:" %><%= f.text_field :host_email %> <br />
-  <%= f.label :description, "Description:" %> <br />
-  <%= f.text_area :description %><br />
-  <%= f.submit %>
-<% end %>
+<p>The premise is simple. You have an event, and need a way to let people respond to let you know if they are going to be there, but don't want to have to set up accounts, force everyone to put in their email addresses, or be able to send the link through non-electronic means.<p>
+<p>Respond To Us is a simple RSVP application. You put in your event and get a unique URL. You send the URL out, and people can respond to you, quickly and simply. You get notified when people are responding. No sign up, registration, or hoop jumping necessary.</p>
+<p>Fill out the form below to get started now!</p>
+<%= render :partial => 'events/event_form' %>
