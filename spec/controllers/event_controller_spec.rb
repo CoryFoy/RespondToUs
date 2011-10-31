@@ -1,6 +1,20 @@
 require 'spec_helper'
 
-describe EventController do
+describe EventsController do
+
+describe "POST 'create'" do
+  it "emails the host with the URL" do
+    EventMailer.should_receive(:new_event_email).and_return(double("mailer", :deliver => true))
+    post :create
+  end
+end
+
+#describe "PUT 'update'" do
+#  it "emails the host that a new RSVP has been entered" do
+#    EventMailer.should_receive(:event_rsvp_email).and_return(double("mailer", :deliver => true))
+#    put :update
+#  end
+#end
 
 # describe "GET 'new'" do
 #   it "returns http success" do

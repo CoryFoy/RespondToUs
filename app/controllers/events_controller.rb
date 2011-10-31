@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   def create
     event = Event.create!(params[:event])
+    EventMailer.new_event_email(event).deliver
     flash[:notice] = "Your event has been created! You can access it at http://localhost:3000/e/#{event.token}"
     redirect_to :action => "show", :id => event.token
   end
@@ -24,7 +25,6 @@ class EventsController < ApplicationController
   end
 
   def update
-  puts "****#{params[:event][:token]}*****"
     event = Event.first(conditions: {token: params[:event][:token]}) 
     event.responses.create!(params[:event][:response])
     flash[:notice] = "Your response has been saved!"

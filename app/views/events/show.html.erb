@@ -8,15 +8,18 @@
 
 <%= form_for @event do |f| %>
   <%= f.hidden_field :token, :value => @event.token %>
+  <div id="event_description">
   <h1>Welcome to "<%=@event.name %>"!</h1> 
-  Responses: 
+  <p>Responses:</p> 
   <ul>
     <li><%=@counts[:yes] %> Yes</li> 
     <li><%=@counts[:no] %> No</li> 
     <li><%=@counts[:maybe] %> Maybe</li>
   </ul>
-To be held on <b><%=@event.date %></b> at <em><%=@event.location %></em><br />
-Description: <br />
-<%=@event.description %>
+  <% if @event.date.length > 0 %><p>On <b><%=@event.date %></b></p><% end %> 
+  <% if @event.location.length > 0 %><p>At <em><%=@event.location %></em></p><% end %>
+<p>Description:</p>
+<p><%=@event.description %></p>
+</div>
 <%= render :partial => 'response_form', :locals => {:parent_form => f} %>
 <% end %>
