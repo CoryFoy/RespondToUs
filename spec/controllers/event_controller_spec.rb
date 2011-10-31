@@ -9,6 +9,16 @@ describe "POST 'create'" do
   end
 end
 
+describe "Event Routing" do
+  it "routes /e/:id to EventController#show" do
+    { :get => "/e/12345"}.should route_to(:controller => "events", :action => "show", :id => "12345")
+  end
+
+  it "routes /a/:id to EventController#edit" do
+    { :get => "/a/12345"}.should route_to(:controller => "events", :action => "edit", :id => "12345")
+  end
+end
+
 #describe "PUT 'update'" do
 #  it "emails the host that a new RSVP has been entered" do
 #    EventMailer.should_receive(:event_rsvp_email).and_return(double("mailer", :deliver => true))
